@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^RCRefreshNoNetworkViewBlock)();
+typedef void(^RCRefreshNoNetworkViewBlock)(void);
 
 @interface STNoNetworkView : UIView
 

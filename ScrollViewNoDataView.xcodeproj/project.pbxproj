@@ -98,15 +98,15 @@
 		500ED01E225DCB410097024C /* NoDataView */ = {
 			isa = PBXGroup;
 			children = (
-				500ED01F225DCB410097024C /* STRequestErrorView.m */,
+				500ED025225DCB410097024C /* NoDataManager.h */,
+				500ED024225DCB410097024C /* UIScrollView+STNoDataView.h */,
 				500ED020225DCB410097024C /* UIScrollView+STNoDataView.m */,
+				500ED023225DCB410097024C /* STNoDataView.h */,
 				500ED021225DCB410097024C /* STNoDataView.m */,
 				500ED022225DCB410097024C /* STNoNetworkView.h */,
-				500ED023225DCB410097024C /* STNoDataView.h */,
-				500ED024225DCB410097024C /* UIScrollView+STNoDataView.h */,
-				500ED025225DCB410097024C /* NoDataManager.h */,
-				500ED026225DCB410097024C /* STRequestErrorView.h */,
 				500ED027225DCB410097024C /* STNoNetworkView.m */,
+				500ED026225DCB410097024C /* STRequestErrorView.h */,
+				500ED01F225DCB410097024C /* STRequestErrorView.m */,
 				500ED035225DCB6E0097024C /* RefreshTableView.bundle */,
 			);
 			path = NoDataView;

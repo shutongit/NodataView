@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^RCRefreshRequestErrorViewBlock)();
+typedef void(^RCRefreshRequestErrorViewBlock)(void);
 
 @interface STRequestErrorView : UIView
 

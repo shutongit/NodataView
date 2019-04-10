@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDAutoLayout.h"
+#import "STRequestErrorView.h"
+#import "STNoDataView.h"
+#import "STNoNetworkView.h"
+
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,43 +22,34 @@ typedef enum : NSUInteger {
     NoDataTypeRemoveView,//有数据了清除视图
 } NoDataType;
 
+typedef void(^RefreshNodataViewBlock)(void);
+
 @interface UIScrollView (STNoDataView)
-/*
- 大致思路是这样的：
- 因为我们这个是给tableView和collectionView等基于scrollView的视图添加提示视图的，如果直接给视图添加提示视图会显得很生硬而且比较繁琐，所以我们这里就给scrollView来一个分类。
- 但是呢，没有波澜的事情做着事没有动力的，那么我们的问题就来了呢，那就是类别中不能添加属性呢～，具体属性的实现之类的东西就牵扯到了元类这个玩意了，这里[参考了](https:\//draveness.me/ao)这篇文章。简单来说就是我们需要给这些个属性和scrollView进行关联
- 这里呢 关联用到了这几个api
- ```
- //添加关联
- void objc_setAssociatedObject(id object, const void *key, id value, objc_AssociationPolicy policy);
- 
- //获取关联
- id objc_getAssociatedObject(id object, const void *key);
- //移除关联,这里我们用不到他
- void objc_removeAssociatedObjects(id object);
- ```
- 到了这里我们就来看下具体的代码实现
- */
 
 /**
  数据类型
  */
-@property (nonatomic, assign) NoDataType type;
+@property (nonatomic, assign) NoDataType errorType;
 
 /**
  默认没有数据显示的视图
  */
-@property (nonatomic, strong ,nonnull) UIView * defaultNodataView;
+@property (nonatomic, strong ,nonnull) STNoDataView * defaultNodataView;
 
 /**
  网络出错的视图
  */
-@property (nonatomic, strong ,nonnull) UIView * neterrorView;
+@property (nonatomic, strong ,nonnull) STNoNetworkView * neterrorView;
 
 /**
  请求出错的视图
  */
-@property (nonatomic, strong ,nonnull) UIView * requestErrorView;
+@property (nonatomic, strong ,nonnull) STRequestErrorView * requestErrorView;
+
+/**
+ 视图数据刷新
+ */
+@property (nonatomic, copy) RefreshNodataViewBlock nodataBlock;
 
 /**
  移除视图
